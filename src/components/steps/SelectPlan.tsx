@@ -27,7 +27,7 @@ const plans = [
   },
 ];
 
-const SelectPlan = forwardRef((props, ref) => {
+const SelectPlan = forwardRef((_, ref) => {
   const dispatch = useDispatch();
   const { plan } = useSelector((state: RootState) => state.form);
   const [isYearly, setIsYearly] = useState(plan?.billing === 'yearly');

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentStep, resetForm } from '../store/formSlice';
+import { setCurrentStep } from '../store/formSlice';
 import { RootState } from '../store';
 
 interface FooterProps {
@@ -19,9 +19,9 @@ const Footer = ({ onNext, onConfirm }: FooterProps) => {
   };
 
   // Button text and visibility
-  let showBack = currentStep > 1 && currentStep < 5;
-  let showNext = currentStep < 4;
-  let showConfirm = currentStep === 4;
+  const showBack = currentStep > 1 && currentStep < 5;
+  const showNext = currentStep < 4;
+  const showConfirm = currentStep === 4;
 
   return (
     <div className="fixed left-1/2 bottom-0 -translate-x-1/2 w-full max-w-md p-2 md:relative md:mt-8 bg-white md:bg-transparent">

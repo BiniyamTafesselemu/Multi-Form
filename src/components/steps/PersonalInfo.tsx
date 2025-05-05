@@ -9,7 +9,7 @@ import type { z } from 'zod';
 
 type PersonalInfoForm = z.infer<typeof personalInfoSchema>;
 
-const PersonalInfo = forwardRef((props, ref) => {
+const PersonalInfo = forwardRef((_, ref) => {
   const dispatch = useDispatch();
   const { personalInfo } = useSelector((state: RootState) => state.form);
 

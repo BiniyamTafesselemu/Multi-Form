@@ -1,4 +1,3 @@
-import React from 'react';
 
 const steps = [
   { step: 1 },
@@ -7,7 +6,12 @@ const steps = [
   { step: 4 },
 ];
 
-const Navbar = ({ currentStep, handleStepClick }) => (
+interface NavbarProps {
+  currentStep: number;
+  handleStepClick: (step: number) => void;
+}
+
+const Navbar = ({ currentStep, handleStepClick }: NavbarProps) => (
   <div
     style={{
       backgroundImage: "url(/images/bg-sidebar-mobile.svg)",

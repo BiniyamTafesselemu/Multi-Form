@@ -136,6 +136,14 @@ const Summary = ({ onConfirm }: SummaryProps) => {
           </div>
         </div>
       </div>
+      <div className="flex justify-between items-center">
+        <span style={{ color: 'hsl(213, 96%, 18%)' }} className="font-medium">
+          Total:
+        </span>
+        <span style={{ color: 'hsl(213, 96%, 18%)' }} className="font-bold">
+          ${calculateTotal()}/{isYearly ? 'yr' : 'mo'}
+        </span>
+      </div>
       <div className="hidden md:flex justify-between">
         <button
           onClick={handleBack}

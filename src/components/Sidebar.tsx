@@ -1,4 +1,3 @@
-import React from 'react';
 
 const steps = [
   { step: 1, label: 'YOUR INFO' },
@@ -7,7 +6,12 @@ const steps = [
   { step: 4, label: 'SUMMARY' },
 ];
 
-const Sidebar = ({ currentStep, handleStepClick }) => (
+interface SidebarProps {
+  currentStep: number;
+  handleStepClick: (step: number) => void;
+}
+
+const Sidebar = ({ currentStep, handleStepClick }: SidebarProps) => (
   <div
     style={{
       backgroundImage: "url(/images/bg-sidebar-desktop.svg)",
