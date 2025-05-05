@@ -6,7 +6,7 @@ import SelectPlan from './steps/SelectPlan';
 import AddOns from './steps/AddOns';
 import Summary from './steps/Summary';
 import ThankYou from './steps/ThankYou';
-import Footer from './Footer';
+// import Footer from './Footer';
 import { useRef } from 'react';
 import Sidebar from './Sidebar';
 import MobileLayout from './MobileLayout';
@@ -14,8 +14,8 @@ import MobileLayout from './MobileLayout';
 const MultiStepForm = () => {
   const dispatch = useDispatch();
   const { currentStep, personalInfo, plan, addOns } = useSelector((state: RootState) => state.form);
-  const personalInfoRef = useRef<any>(null);
-  const selectPlanRef = useRef<any>(null);
+  const personalInfoRef = useRef(null);
+  const selectPlanRef = useRef<{ submit: () => void } | null>(null);
 
   const handleStepClick = (step: number) => {
     // Allow backward navigation without validation

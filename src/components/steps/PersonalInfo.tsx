@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef, useEffect } from 'react';
+import { forwardRef, useImperativeHandle, useRef, useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,10 +24,10 @@ const PersonalInfo = forwardRef((_, ref) => {
     defaultValues: personalInfo,
   });
 
-  const onSubmit = (data: PersonalInfoForm) => {
+  const onSubmit = useCallback((data: PersonalInfoForm) => {
     dispatch(updatePersonalInfo(data));
     dispatch(setCurrentStep(2));
-  };
+  }, [dispatch]);
 
   useImperativeHandle(ref, () => ({
     submit: () => {
@@ -39,7 +39,7 @@ const PersonalInfo = forwardRef((_, ref) => {
     const handler = () => handleSubmit(onSubmit)();
     window.addEventListener('personalInfoSubmit', handler);
     return () => window.removeEventListener('personalInfoSubmit', handler);
-  }, [handleSubmit]);
+  }, [handleSubmit, onSubmit]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 md:space-y-12 md:py-12">
